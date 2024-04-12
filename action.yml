@@ -11,9 +11,8 @@ runs:
     - name: Setup Repo
       shell: bash
       run: |
-        curl https://storage.googleapis.com/git-repo-downloads/repo > ~/repo
-        chmod +x ~/repo
-        export PATH=$PATH:~
+        curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/bin/repo
+        chmod +x /usr/bin/repo
 
     - name: Install ASDF
       uses: asdf-vm/actions/setup@v3
