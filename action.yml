@@ -3,12 +3,17 @@ description: Lints a Terraform Module using LCAF
 runs:
   using: "composite"
   steps:
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+
     - name: Setup Repo
       shell: bash
       run: |
-        apt update && apt install -y git openssh-client curl python3 python
-        curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/bin/repo
-        chmod +x /usr/bin/repo
+        curl https://storage.googleapis.com/git-repo-downloads/repo > ~/repo
+        chmod +x ~/repo
+        export PATH=$PATH:~
 
     - name: Install ASDF
       uses: asdf-vm/actions/setup@v3
