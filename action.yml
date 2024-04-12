@@ -29,4 +29,4 @@ runs:
     - name: Lint Repository
       shell: bash
       run: |
-        make lint
+        GO_LINT_TIMEOUT=10m make lint
