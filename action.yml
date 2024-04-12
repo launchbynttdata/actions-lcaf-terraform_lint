@@ -21,6 +21,8 @@ runs:
     - name: Configure LCAF
       shell: bash
       run: |
+        git config --add user.name github_actions
+        git config --add user.email actions_noreply@github.com
         make configure
 
     - name: Lint Repository
