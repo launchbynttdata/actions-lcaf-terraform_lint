@@ -1,0 +1,24 @@
+name: Lint LCAF Terraform Module
+description: Lints a Terraform Module using LCAF
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Repo
+      shell: bash
+      run: |
+        apt update && apt install -y git openssh-client curl python3 python
+        curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/bin/repo
+        chmod +x /usr/bin/repo
+
+    - name: Install ASDF
+      uses: asdf-vm/actions/setup@v3
+
+    - name: Configure LCAF
+      shell: bash
+      run: |
+        make configure
+
+    - name: Lint Repository
+      shell: bash
+      run: |
+        make lint
