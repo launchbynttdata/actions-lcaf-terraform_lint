@@ -25,8 +25,8 @@ runs:
         git config --add user.name github_actions
         git config --add user.email actions_noreply@github.com
         make configure
-        make tfmodule/init
         make tfmodule/create_example_providers
+        make tfmodule/init
 
     - name: Lint Repository
       shell: bash
